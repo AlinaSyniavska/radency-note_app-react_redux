@@ -2,11 +2,13 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 // import your icons
-import {faHome, faPen, faFileZipper, faTrash} from "@fortawesome/free-solid-svg-icons";
+import {faPen, faFileZipper, faTrash, faCalendarCheck, faHeadSideVirus, faLightbulb} from "@fortawesome/free-solid-svg-icons";
 
 library.add(
-    faHome,
+    faCalendarCheck,
     faFileZipper,
+    faHeadSideVirus,
+    faLightbulb,
     faPen,
     faTrash,
     // more icons go here
