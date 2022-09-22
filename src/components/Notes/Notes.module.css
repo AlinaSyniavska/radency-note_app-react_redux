@@ -1,0 +1,23 @@
+.wrap {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.notesContainer,
+.archNotesContainer,
+.statisticContainer {
+    margin: 20px 0;
+    box-sizing: border-box;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.btnCreateNote {
+    margin-right: 2.5%;
+    align-self: end;
+}
