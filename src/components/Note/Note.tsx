@@ -53,16 +53,16 @@ const Note: FC<IProps> = ({note, type}) => {
                     {
                         !isArchived &&
                         <div className={style.btnEdit} onClick={editNote}>
-                            <FontAwesomeIcon icon={faPen}/>
+                            <FontAwesomeIcon icon={faPen} title={'Edit'}/>
                         </div>
                     }
                     <div className={style.btnArch} onClick={archNote}>
-                        <FontAwesomeIcon icon={faFileZipper}/>
+                        <FontAwesomeIcon icon={faFileZipper} title={'Archive/Unzip'}/>
                     </div>
                     {
                         !isArchived &&
                         <div className={style.btnTrash} onClick={dropNote}>
-                            <FontAwesomeIcon icon={faTrash}/>
+                            <FontAwesomeIcon icon={faTrash} title={'Delete'}/>
                         </div>
                     }
                 </div>

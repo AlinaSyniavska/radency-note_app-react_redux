@@ -17,7 +17,7 @@
     row-gap: 5px;
 }
 
-.btnCreateNote {
+a {
     margin-right: 2.5%;
     align-self: end;
 }

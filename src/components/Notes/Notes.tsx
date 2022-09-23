@@ -5,6 +5,7 @@ import {NoteHeader} from "../NoteHeader/NoteHeader";
 import {Note} from "../Note/Note";
 import style from './Notes.module.css';
 import {noteStatus} from "../../constants";
+import {Link} from "react-router-dom";
 
 const Notes: FC = () => {
     const {notes} = useAppSelector(state => state.noteReducer);
@@ -21,7 +22,9 @@ const Notes: FC = () => {
                     }
                 </div>
 
-                <button className={style.btnCreateNote}>Create Note</button>
+                <Link to={'create'}>
+                    <button className={style.btnCreateNote}>Create Note</button>
+                </Link>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import {FC} from "react";
 
-import style from '../NoteHeader/NoteHeader.module.css';
+import style from '../Note/Note.module.css';
 
 const StatisticHeader: FC = () => {
     return (

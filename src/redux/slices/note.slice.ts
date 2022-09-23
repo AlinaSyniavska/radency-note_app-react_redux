@@ -7,6 +7,7 @@ import {noteCategory, noteStatus} from "../../constants";
 interface IState {
     notes: INote[],
     noteForUpdate: null,
+    formErrors: any,
 }
 
 const initialState: IState = {
@@ -76,6 +77,7 @@ const initialState: IState = {
         },
     ],
     noteForUpdate: null,
+    formErrors: {},
 };
 
 const noteSlice = createSlice({
@@ -85,7 +87,6 @@ const noteSlice = createSlice({
         deleteNote: (state, action) => {
             const note = action.payload.note;
             const index = state.notes.findIndex(item => item.id === note.id);
-            // state.notes[index].noteStatus = noteStatus.DELETED;
             state.notes.splice(index, 1);
         },
 
@@ -100,13 +101,19 @@ const noteSlice = createSlice({
             const index = state.notes.findIndex(item => item.id === note.id);
             state.notes[index].noteStatus = noteStatus.ACTIVE;
         },
+
+        createNote: (state, action) => {
+            const note = action.payload.note;
+            state.notes.push(note);
+        },
     },
 
 });
 
-const {reducer: noteReducer, actions: {deleteNote, zipNote, unZipNote}} = noteSlice;
+const {reducer: noteReducer, actions: {createNote, deleteNote, zipNote, unZipNote}} = noteSlice;
 
 const noteActions = {
+    createNote,
     deleteNote,
     zipNote,
     unZipNote,

@@ -1,4 +1,5 @@
 export * from './ArchNotes/ArchNotes';
+export * from './CreateNoteForm/CreateNoteForm';
 export * from './Note/Note';
 export * from './NoteHeader/NoteHeader';
 export * from './Notes/Notes';
