@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from "react";
+import React, {FC, useEffect, useState} from "react";
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 
@@ -24,23 +24,28 @@ const CreateNoteForm: FC = () => {
     } = useAppSelector(state => state.noteReducer);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const [oldCreateNoteDate, setOldCreateNoteDate] = useState<string>('');
 
     useEffect(() => {
+        console.log(noteForUpdate)
         if (noteForUpdate) {
             const {
                 name,
                 created,
                 category,
                 content,
-                dates,
-            } = noteForUpdate;
+            } = noteForUpdate as INote;
+
+            const dateForForm = new Date(created).toLocaleDateString().split('.').reverse().join('-');
 
             setValue('name', name);
-            setValue('created', created);
+            setValue('created', dateForForm);
             setValue('category', category);
             setValue('content', content);
-            // oldCreateNoteDate = event.data.created;
+
+            setOldCreateNoteDate(created);
         }
+
     }, [noteForUpdate])
 
     const submitForm = async (note: INote) => {
@@ -50,7 +55,7 @@ const CreateNoteForm: FC = () => {
                 const newNote = {
                     id: helper.guid(),
                     name: note.name,
-                    created: note.created,
+                    created: new Date(note.created).toString(),
                     category: note.category,
                     content: note.content,
                     dates: [],
@@ -59,15 +64,37 @@ const CreateNoteForm: FC = () => {
 
                 dispatch(noteActions.createNote({note: newNote}))
             } else {
-/*                const {_id} = productForUpdate;
-                await dispatch(productActions.updateById({id: _id, product: expandedProduct}));*/
+                const oldDate = new Date(oldCreateNoteDate).toLocaleDateString();
+                const newDate = new Date(note.created).toLocaleDateString();
+
+                const updatedNote = {
+                    name: note.name,
+                    created: new Date(note.created).toString(),
+                    category: note.category,
+                    content: note.content,
+                    dates: oldDate === newDate
+                        ? []
+                        : [new Date(oldCreateNoteDate).toString(), new Date(note.created).toString()],
+                }
+
+                const {id} = noteForUpdate;
+                await dispatch(noteActions.updateNote({id, note: updatedNote}));
             }
 
-            navigate('/');
             reset();
+            navigate('/');
         } catch (e: any) {
             console.log(e.response.data());
         }
+    }
+
+    const cleanForm = (e: MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setValue('name', '');
+        setValue('created', '');
+        setValue('category', '');
+        setValue('content', '');
     }
 
     return (
@@ -104,6 +131,7 @@ const CreateNoteForm: FC = () => {
                 <div className={style.errorBox}>{errors.created && <span>{errors.created?.message}</span>}</div>
                 <div className={style.formBtnContainer}>
                     <button className={style.btnSetNote}>{noteForUpdate ? 'Save Update' : 'Create'}</button>
+                    <button className={style.btnSetNote} onClick={(e) => cleanForm}>Clean</button>
                 </div>
 
                 <div>

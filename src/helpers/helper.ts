@@ -24,19 +24,6 @@ const helper = {
 
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     },
-
-    getDate2Digits: (date: string[]) => {
-        const formatDate: string[] = [];
-        date.forEach((item) => {
-            if(item.length < 2){
-                item = '0'.concat(item);
-            }
-
-            formatDate.push(item);
-        })
-
-        return formatDate;
-    }
 }
 
 export {

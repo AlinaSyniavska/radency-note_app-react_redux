@@ -15,7 +15,7 @@ const initialState: IState = {
         {
             id: helper.guid(),
             name: 'Shopping List',
-            created: '2022, 9, 25',
+            created: new Date(Date.now()).toString(),
             category: noteCategory.TASK,
             content: 'Milk, cheese, cakes',
             dates: [],
@@ -24,7 +24,7 @@ const initialState: IState = {
         {
             id: helper.guid(),
             name: 'Health Hackathon',
-            created: '2022, 9, 29',
+            created: new Date(Date.now()).toString(),
             category: noteCategory.RANDOM_THOUGHT,
             content: 'Health Hackathon is an event where you will solve challenges and create new innovative products for health and healthcare!',
             dates: [],
@@ -33,7 +33,7 @@ const initialState: IState = {
         {
             id: helper.guid(),
             name: 'New Travel',
-            created: '2022, 10, 1',
+            created: new Date(Date.now()).toString(),
             category: noteCategory.IDEA,
             content: 'New Travel',
             dates: [],
@@ -42,7 +42,7 @@ const initialState: IState = {
         {
             id: helper.guid(),
             name: 'Dynamic Talks',
-            created: '2022, 9, 23',
+            created: new Date(Date.now()).toString(),
             category: noteCategory.IDEA,
             content: 'The event will be held in English',
             dates: [],
@@ -51,7 +51,7 @@ const initialState: IState = {
         {
             id: helper.guid(),
             name: 'Books',
-            created: '2022, 9, 25',
+            created: new Date(Date.now()).toString(),
             category: noteCategory.TASK,
             content: 'JavaScript for impatient programmers',
             dates: [],
@@ -60,7 +60,7 @@ const initialState: IState = {
         {
             id: helper.guid(),
             name: ' Webinar “Devops — More than the tools and tech”',
-            created: '2022, 10, 10',
+            created: new Date(Date.now()).toString(),
             category: noteCategory.TASK,
             content: 'Developers Shore are announcing a webinar — “Devops — More than the tools and tech” with Martin Comstedt',
             dates: [],
@@ -69,7 +69,7 @@ const initialState: IState = {
         {
             id: helper.guid(),
             name: 'NASA Open APIs',
-            created: '2022, 9, 25',
+            created: new Date(Date.now()).toString(),
             category: noteCategory.TASK,
             content: 'View NASA Open APIs',
             dates: [],
@@ -106,17 +106,37 @@ const noteSlice = createSlice({
             const note = action.payload.note;
             state.notes.push(note);
         },
+
+        setNoteForUpdate: (state, action) => {
+            state.noteForUpdate = action.payload.note;
+        },
+
+        updateNote: (state, action) => {
+            const updatedNote = action.payload.note;
+            const idNote = action.payload.id;
+            const index = state.notes.findIndex(item => item.id === idNote);
+            state.notes[index] = Object.assign(state.notes[index], {...updatedNote});
+            state.noteForUpdate = null;
+        },
+
+        cleaningUpdateNote: (state) => {
+            state.noteForUpdate = null;
+            console.log('++++')
+        },
     },
 
 });
 
-const {reducer: noteReducer, actions: {createNote, deleteNote, zipNote, unZipNote}} = noteSlice;
+const {reducer: noteReducer, actions: {cleaningUpdateNote, createNote, deleteNote, setNoteForUpdate, zipNote, unZipNote, updateNote}} = noteSlice;
 
 const noteActions = {
+    cleaningUpdateNote,
     createNote,
     deleteNote,
+    setNoteForUpdate,
     zipNote,
     unZipNote,
+    updateNote,
 };
 
 export {

@@ -9,6 +9,7 @@ import {noteStatus} from "../../constants";
 import {noteActions} from "../../redux";
 
 import style from "./Note.module.css";
+import {Link} from "react-router-dom";
 
 interface IProps {
     note: INote,
@@ -25,10 +26,6 @@ const Note: FC<IProps> = ({note, type}) => {
         }
     }, [type])
 
-    const editNote = () => {
-        // dispatch(noteActions.updateNote({note}));
-    }
-
     const archNote = () => {
         if (!isArchived) {
             dispatch(noteActions.zipNote({note}));
@@ -37,8 +34,8 @@ const Note: FC<IProps> = ({note, type}) => {
         }
     }
 
-    const dropNote = () => {
-        dispatch(noteActions.deleteNote({note}));
+    const editNote = () => {
+        dispatch(noteActions.setNoteForUpdate({note}));
     }
 
     return (
@@ -52,16 +49,18 @@ const Note: FC<IProps> = ({note, type}) => {
                 <div className={style.btnControl}>
                     {
                         !isArchived &&
-                        <div className={style.btnEdit} onClick={editNote}>
-                            <FontAwesomeIcon icon={faPen} title={'Edit'}/>
-                        </div>
+                        <Link to={'/create'}>
+                            <div className={style.btnEdit} onClick={editNote}>
+                                <FontAwesomeIcon icon={faPen} title={'Edit'}/>
+                            </div>
+                        </Link>
                     }
                     <div className={style.btnArch} onClick={archNote}>
                         <FontAwesomeIcon icon={faFileZipper} title={'Archive/Unzip'}/>
                     </div>
                     {
                         !isArchived &&
-                        <div className={style.btnTrash} onClick={dropNote}>
+                        <div className={style.btnTrash} onClick={() => dispatch(noteActions.deleteNote({note}))}>
                             <FontAwesomeIcon icon={faTrash} title={'Delete'}/>
                         </div>
                     }

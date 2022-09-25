@@ -4,9 +4,10 @@ import {CreateNoteForm} from "../../components";
 import {Link} from "react-router-dom";
 
 const CreateNotePage: FC = () => {
+
     return (
         <div>
-            <Link to={'/'}>To Main</Link>
+            <Link to={'/'}>Back</Link>
             <CreateNoteForm/>
         </div>
     );
