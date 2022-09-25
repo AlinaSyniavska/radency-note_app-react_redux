@@ -1,13 +1,20 @@
-import {FC} from "react";
+import {FC, useEffect} from "react";
 
-import {useAppSelector} from "../../hooks";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 import {NoteHeader} from "../NoteHeader/NoteHeader";
 import {Note} from "../Note/Note";
 import style from './Notes.module.css';
 import {noteStatus} from "../../constants";
+import {Link} from "react-router-dom";
+import {noteActions} from "../../redux";
 
 const Notes: FC = () => {
     const {notes} = useAppSelector(state => state.noteReducer);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(noteActions.cleaningUpdateNote());
+    }, [])
 
     return (
         <div>
@@ -21,7 +28,9 @@ const Notes: FC = () => {
                     }
                 </div>
 
-                <button className={style.btnCreateNote}>Create Note</button>
+                <Link to={'create'}>
+                    <button className={style.btnCreateNote}>Create Note</button>
+                </Link>
             </div>
         </div>
     );

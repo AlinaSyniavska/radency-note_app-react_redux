@@ -1,0 +1,56 @@
+* {
+    color: #616161;
+}
+
+.formTitle {
+    margin: 20px 0 5px 20px;
+    padding: 0;
+}
+
+.noteForm {
+    margin: 0 20px 20px 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 50%;
+    border: 2px solid #616161;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    width: calc(100% - 10px);
+}
+
+input[type="date"] {
+    display: block;
+}
+
+.formBtnContainer {
+    display: flex;
+    justify-content: end;
+    column-gap: 10%;}
+
+.btnSetNote {
+    padding: 10px;
+    width: 100px;
+    cursor: pointer;
+}
+.btnSetNote:hover {
+    box-shadow: 0 0 15px 0 rgba(66, 68, 90, 1);
+}
+
+.errorBox {
+    margin: 10px 0;
+}
+.errorBox > span {
+    color: red;
+    font-weight: bold;
+}
