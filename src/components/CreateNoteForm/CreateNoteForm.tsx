@@ -27,7 +27,6 @@ const CreateNoteForm: FC = () => {
     const [oldCreateNoteDate, setOldCreateNoteDate] = useState<string>('');
 
     useEffect(() => {
-        console.log(noteForUpdate)
         if (noteForUpdate) {
             const {
                 name,
@@ -88,9 +87,9 @@ const CreateNoteForm: FC = () => {
         }
     }
 
-    const cleanForm = (e: MouseEvent) => {
-        e.preventDefault();
+    const cleanForm = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
+        e.preventDefault();
         setValue('name', '');
         setValue('created', '');
         setValue('category', '');
@@ -131,7 +130,7 @@ const CreateNoteForm: FC = () => {
                 <div className={style.errorBox}>{errors.created && <span>{errors.created?.message}</span>}</div>
                 <div className={style.formBtnContainer}>
                     <button className={style.btnSetNote}>{noteForUpdate ? 'Save Update' : 'Create'}</button>
-                    <button className={style.btnSetNote} onClick={(e) => cleanForm}>Clean</button>
+                    <button className={style.btnSetNote} onClick={(e) => cleanForm(e)}>Clean</button>
                 </div>
 
                 <div>

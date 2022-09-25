@@ -121,7 +121,6 @@ const noteSlice = createSlice({
 
         cleaningUpdateNote: (state) => {
             state.noteForUpdate = null;
-            console.log('++++')
         },
     },
 
