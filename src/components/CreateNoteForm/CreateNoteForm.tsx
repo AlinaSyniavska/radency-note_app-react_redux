@@ -6,7 +6,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {noteValidator} from "../../validators";
 import {INote} from "../../interfaces";
 import {noteCategory, noteStatus} from "../../constants";
-import style from './CreateNoteForm.module.css';
+import "../../index.css";
 import {useNavigate} from "react-router-dom";
 import {noteActions} from "../../redux";
 import {helper} from "../../helpers";
@@ -98,17 +98,17 @@ const CreateNoteForm: FC = () => {
 
     return (
         <div>
-            <h2 className={style.formTitle}>{noteForUpdate ? 'Edit Note' : 'Create New Note'}</h2>
+            <h2 className={"formTitle"}>{noteForUpdate ? 'Edit Note' : 'Create New Note'}</h2>
 
-            <form className={style.noteForm} onSubmit={handleSubmit(submitForm)}>
+            <form className={"noteForm"} onSubmit={handleSubmit(submitForm)}>
                 <label>Note Name
                     <input type={'text'} placeholder={'Enter note title  '} {...register('name')}/>
                 </label>
-                <div className={style.errorBox}>{errors.name && <span>{errors.name.message}</span>}</div>
+                <div className={"errorBox"}>{errors.name && <span>{errors.name.message}</span>}</div>
                 <label>Note Content
                     <input type={'text'} placeholder={'Enter note  '} {...register('content')}/>
                 </label>
-                <div className={style.errorBox}>{errors.content && <span>{errors.content?.message}</span>}</div>
+                <div className={"errorBox"}>{errors.content && <span>{errors.content?.message}</span>}</div>
                 <div>Note Category
                     <label>
                         <input type={'radio'} defaultChecked {...register('category')} value={noteCategory.TASK}/>
@@ -123,14 +123,14 @@ const CreateNoteForm: FC = () => {
                         RANDOM THOUGHT
                     </label>
                 </div>
-                <div className={style.errorBox}>{errors.category && <span>{errors.category?.message}</span>}</div>
+                <div className={"errorBox"}>{errors.category && <span>{errors.category?.message}</span>}</div>
                 <label>Date
                     <input type={'date'} {...register('created')}/>
                 </label>
-                <div className={style.errorBox}>{errors.created && <span>{errors.created?.message}</span>}</div>
-                <div className={style.formBtnContainer}>
-                    <button className={style.btnSetNote}>{noteForUpdate ? 'Save Update' : 'Create'}</button>
-                    <button className={style.btnSetNote} onClick={(e) => cleanForm(e)}>Clean</button>
+                <div className={"errorBox"}>{errors.created && <span>{errors.created?.message}</span>}</div>
+                <div className={"formBtnContainer"}>
+                    <button className={"btnSetNote"}>{noteForUpdate ? 'Save Update' : 'Create'}</button>
+                    <button className={"btnSetNote"} onClick={(e) => cleanForm(e)}>Clean</button>
                 </div>
 
                 <div>

@@ -1,3 +1,93 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    /*Notes.tsx*/
+    .wrap {
+        @apply flex justify-center items-center flex-col;
+    }
+
+    .notesContainer,
+    .archNotesContainer,
+    .statisticContainer {
+        @apply container mt-5 w-[95%] flex flex-col gap-y-1;
+    }
+
+    a {
+        @apply mr-[2.5%] self-end;
+    }
+
+    a > button {
+        @apply p-2.5 w-[100px] cursor-pointer;
+    }
+
+    a > button {
+        @apply hover:shadow-lg shadow-gray-700/50;
+    }
+
+    /*Note.tsx*/
+    .note {
+        @apply bg-gray-200 rounded w-full h-16 px-2.5 flex justify-between gap-x-2.5 items-center text-gray-700 text-base;
+    }
+
+    .note div {
+        @apply py-1 overflow-hidden text-ellipsis whitespace-nowrap;
+    }
+
+    .noteHeader {
+        @apply bg-gray-700 text-white font-bold text-base;
+    }
+
+    .noteHeader .btnEdit {
+        @apply invisible;
+    }
+
+    .noteName {
+        @apply w-1/5;
+    }
+
+    .noteItem > .noteName {
+        @apply text-gray-700 font-bold;
+    }
+
+    .noteName > i {
+        @apply mr-2.5;
+    }
+
+    .noteCreated {
+        @apply w-1/6;
+    }
+
+    .noteCategory {
+        @apply w-1/6;
+    }
+
+    .noteContent {
+        @apply w-1/5;
+    }
+
+    .noteDates {
+        @apply w-1/6;
+    }
+
+    .btnControl {
+        @apply flex gap-x-2.5;
+    }
+
+    .btnControl div {
+        @apply transition transform hover:translate-y-1 cursor-pointer;
+        transition: .5s;
+        transform: scale(100%);
+    }
+
+    .btnControl div:hover {
+        @apply transition transform hover:-translate-y-1 ;
+        /*cursor: pointer;*/
+        /*transition: .5s;*/
+        /*transform: scale(120%);*/
+    }
+
+
+}
+

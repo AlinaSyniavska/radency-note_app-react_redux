@@ -3,25 +3,25 @@ import {FC} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFileZipper, faPen, faTrash} from "@fortawesome/free-solid-svg-icons";
 
-import style from '../Note/Note.module.css';
+import "../../index.css";
 
 const NoteHeader: FC = () => {
     return (
         <div>
-            <div className={`${style.note} ${style.noteHeader}`}>
-                <div className={style.noteName}>Name</div>
-                <div className={style.noteCreated}>Created</div>
-                <div className={style.noteCategory}>Category</div>
-                <div className={style.noteContent}>Content</div>
-                <div className={style.noteDates}>Dates</div>
-                <div className={style.btnControl}>
-                    <div className={style.btnEdit}>
+            <div className={"note noteHeader"}>
+                <div className={"noteName"}>Name</div>
+                <div className={"noteCreated"}>Created</div>
+                <div className={"noteCategory"}>Category</div>
+                <div className={"noteContent"}>Content</div>
+                <div className={"noteDates"}>Dates</div>
+                <div className={"btnControl"}>
+                    <div className={"btnEdit"}>
                         <FontAwesomeIcon icon={faPen}  color={'dark'} />
                     </div>
-                    <div className={style.btnArch}>
+                    <div className={"btnArch"}>
                         <FontAwesomeIcon icon={faFileZipper}  color={'dark'} />
                     </div>
-                    <div className={style.btnTrash}>
+                    <div className={"btnTrash"}>
                         <FontAwesomeIcon icon={faTrash}  color={'dark'} />
                     </div>
                 </div>

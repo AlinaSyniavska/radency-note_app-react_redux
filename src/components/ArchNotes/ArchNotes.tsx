@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {useAppSelector} from "../../hooks";
-import style from "../Notes/Notes.module.css";
+import "../../index.css";
 import {Note} from "../Note/Note";
 import {noteStatus} from "../../constants";
 
@@ -9,8 +9,8 @@ const ArchNotes: FC = () => {
 
     return (
         <div>
-            <div className={style.wrap}>
-                <div className={style.archNotesContainer}>
+            <div className={"wrap"}>
+                <div className={"archNotesContainer"}>
                     {
                         notes
                             .filter(note => note.noteStatus === noteStatus.ARCHIVED)

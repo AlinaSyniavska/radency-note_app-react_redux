@@ -3,7 +3,7 @@ import {FC, useEffect, useState} from "react";
 import {StatisticHeader} from "../StatisticHeader/StatisticHeader";
 import {noteCategory} from "../../constants";
 import {StatisticRecord} from "../StatisticRecord/StatisticRecord";
-import style from '../Notes/Notes.module.css';
+import "../../index.css";
 
 const Statistic: FC = () => {
     const [categories, setCategories] = useState<string[]>([]);
@@ -16,8 +16,8 @@ const Statistic: FC = () => {
 
     return (
         <div>
-            <div className={style.wrap}>
-                <div className={style.statisticContainer}>
+            <div className={"wrap"}>
+                <div className={"statisticContainer"}>
                     <StatisticHeader/>
                     {
                         categories

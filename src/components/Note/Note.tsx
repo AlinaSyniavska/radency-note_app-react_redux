@@ -8,7 +8,7 @@ import {useAppDispatch} from "../../hooks";
 import {noteStatus} from "../../constants";
 import {noteActions} from "../../redux";
 
-import style from "./Note.module.css";
+import "../../index.css";
 import {Link} from "react-router-dom";
 
 interface IProps {
@@ -40,28 +40,27 @@ const Note: FC<IProps> = ({note, type}) => {
 
     return (
         <div>
-            <div className={`${style.note} ${style.noteItem}`}>
-            {/*<div className="bg-red-400">*/}
-                <div className={style.noteName}>{note.name}</div>
-                <div className={style.noteCreated}>{helper.formatDate(note.created)}</div>
-                <div className={style.noteCategory}>{note.category}</div>
-                <div className={style.noteContent}>{note.content}</div>
-                <div className={style.noteDates}>{note.dates.map(i => helper.formatDate(i)).join('; ')}</div>
-                <div className={style.btnControl}>
+            <div className={"note noteItem"}>
+                <div className={"noteName"}>{note.name}</div>
+                <div className={"noteCreated"}>{helper.formatDate(note.created)}</div>
+                <div className={"noteCategory"}>{note.category}</div>
+                <div className={"noteContent"}>{note.content}</div>
+                <div className={"noteDates"}>{note.dates.map(i => helper.formatDate(i)).join('; ')}</div>
+                <div className={"btnControl"}>
                     {
                         !isArchived &&
                         <Link to={'/create'}>
-                            <div className={style.btnEdit} onClick={editNote}>
+                            <div className={"btnEdit"} onClick={editNote}>
                                 <FontAwesomeIcon icon={faPen} title={'Edit'}/>
                             </div>
                         </Link>
                     }
-                    <div className={style.btnArch} onClick={archNote}>
+                    <div className={"btnArch"} onClick={archNote}>
                         <FontAwesomeIcon icon={faFileZipper} title={'Archive/Unzip'}/>
                     </div>
                     {
                         !isArchived &&
-                        <div className={style.btnTrash} onClick={() => dispatch(noteActions.deleteNote({note}))}>
+                        <div className={"btnTrash"} onClick={() => dispatch(noteActions.deleteNote({note}))}>
                             <FontAwesomeIcon icon={faTrash} title={'Delete'}/>
                         </div>
                     }

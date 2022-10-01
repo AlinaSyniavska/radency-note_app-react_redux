@@ -10,7 +10,7 @@ import {helper} from "../../helpers";
 import {useAppSelector} from "../../hooks";
 import {noteStatus} from "../../constants";
 
-import style from "../Note/Note.module.css";
+import "../../index.css";
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 
 interface IProps {
@@ -39,10 +39,10 @@ const StatisticRecord: FC<IProps> = ({category}) => {
 
     return (
         <div>
-            <div className={`${style.note} ${style.noteItem}`}>
-                <div className={style.noteName}><FontAwesomeIcon icon={icon}/>  {category}</div>
-                <div className={style.noteContent}>{helper.countStatus(category, noteStatus.ACTIVE, notes)}</div>
-                <div className={style.noteContent}>{helper.countStatus(category, noteStatus.ARCHIVED, notes)}</div>
+            <div className={"note noteItem"}>
+                <div className={"noteName"}><FontAwesomeIcon icon={icon}/>  {category}</div>
+                <div className={"noteContent"}>{helper.countStatus(category, noteStatus.ACTIVE, notes)}</div>
+                <div className={"noteContent"}>{helper.countStatus(category, noteStatus.ARCHIVED, notes)}</div>
             </div>
         </div>
     );

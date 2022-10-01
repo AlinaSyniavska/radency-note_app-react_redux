@@ -1,14 +1,14 @@
 import {FC} from "react";
 
-import style from '../Note/Note.module.css';
+import "../../index.css";
 
 const StatisticHeader: FC = () => {
     return (
         <div>
-            <div className={`${style.note} ${style.noteHeader}`}>
-                <div className={style.noteName}>Note Category</div>
-                <div className={style.noteContent}>Active</div>
-                <div className={style.noteContent}>Archived</div>
+            <div className={"note noteHeader"}>
+                <div className={"noteName"}>Note Category</div>
+                <div className={"noteContent"}>Active</div>
+                <div className={"noteContent"}>Archived</div>
             </div>
         </div>
     );
