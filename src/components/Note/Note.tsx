@@ -41,6 +41,7 @@ const Note: FC<IProps> = ({note, type}) => {
     return (
         <div>
             <div className={`${style.note} ${style.noteItem}`}>
+            {/*<div className="bg-red-400">*/}
                 <div className={style.noteName}>{note.name}</div>
                 <div className={style.noteCreated}>{helper.formatDate(note.created)}</div>
                 <div className={style.noteCategory}>{note.category}</div>

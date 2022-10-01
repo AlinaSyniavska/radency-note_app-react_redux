@@ -1,4 +1,12 @@
 
+/*@layer components {
+    .btn {
+        @apply bc-
+    }
+}*/
+
+/*
+
 .note {
     box-sizing: border-box;
     border-radius: 5px;
@@ -63,7 +71,7 @@
 }
 
 .btnControl {
-    /*width: 15%;*/
+    !*width: 15%;*!
     display: flex;
     column-gap: 10px;
 }
@@ -77,4 +85,6 @@
     cursor: pointer;
     transition: .5s;
     transform: scale(120%);
-}
+}*/
+
+

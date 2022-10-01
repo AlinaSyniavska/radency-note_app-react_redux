@@ -6,9 +6,8 @@ import {Provider} from "react-redux";
 import {setupStore} from "./redux";
 
 import {App} from './App';
+import './index.css';
 import {history} from './services';
-
-// import your fontawesome library
 import './fontawesome';
 
 const root = ReactDOM.createRoot(
