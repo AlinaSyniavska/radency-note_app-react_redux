@@ -7,7 +7,7 @@ const CreateNotePage: FC = () => {
 
     return (
         <div>
-            <Link to={'/'}>Back</Link>
+            <Link to={'/'} className={"mt-5 mr-0 mb-1 ml-5 p-0 text-sm hover:underline before:content-['<<']"}> Back</Link>
             <CreateNoteForm/>
         </div>
     );

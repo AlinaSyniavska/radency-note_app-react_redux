@@ -101,13 +101,11 @@ const CreateNoteForm: FC = () => {
             <h2 className={"formTitle"}>{noteForUpdate ? 'Edit Note' : 'Create New Note'}</h2>
 
             <form className={"noteForm"} onSubmit={handleSubmit(submitForm)}>
-                <label>Note Name
-                    <input type={'text'} placeholder={'Enter note title  '} {...register('name')}/>
-                </label>
+                <label className={"requiredField"}>Note Name</label>
+                <input type={'text'} placeholder={'Enter note title  '} {...register('name')}/>
                 <div className={"errorBox"}>{errors.name && <span>{errors.name.message}</span>}</div>
-                <label>Note Content
-                    <input type={'text'} placeholder={'Enter note  '} {...register('content')}/>
-                </label>
+                <label className={"requiredField"}>Note Content</label>
+                <input type={'text'} placeholder={'Enter note  '} {...register('content')}/>
                 <div className={"errorBox"}>{errors.content && <span>{errors.content?.message}</span>}</div>
                 <div>Note Category
                     <label>
@@ -124,9 +122,8 @@ const CreateNoteForm: FC = () => {
                     </label>
                 </div>
                 <div className={"errorBox"}>{errors.category && <span>{errors.category?.message}</span>}</div>
-                <label>Date
-                    <input type={'date'} {...register('created')}/>
-                </label>
+                <label className={"requiredField"}>Date</label>
+                <input type={'date'} {...register('created')}/>
                 <div className={"errorBox"}>{errors.created && <span>{errors.created?.message}</span>}</div>
                 <div className={"formBtnContainer"}>
                     <button className={"btnSetNote"}>{noteForUpdate ? 'Save Update' : 'Create'}</button>

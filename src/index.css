@@ -18,12 +18,12 @@
         @apply mr-[2.5%] self-end;
     }
 
-    a > button {
-        @apply p-2.5 w-[100px] cursor-pointer;
+    .btnCreateNote {
+        @apply py-2.5 px-5 cursor-pointer bg-gray-700 text-white font-semibold rounded-md mt-2.5;
     }
 
-    a > button {
-        @apply hover:shadow-lg shadow-gray-700/50;
+    .btnCreateNote:hover {
+        @apply hover:shadow-lg shadow-gray-700/50 hover:bg-gray-400;
     }
 
     /*Note.tsx*/
@@ -76,18 +76,52 @@
     }
 
     .btnControl div {
-        @apply transition transform hover:translate-y-1 cursor-pointer;
-        transition: .5s;
-        transform: scale(100%);
+        @apply transition delay-300 transform hover:translate-y-1 cursor-pointer;
     }
 
     .btnControl div:hover {
-        @apply transition transform hover:-translate-y-1 ;
-        /*cursor: pointer;*/
-        /*transition: .5s;*/
-        /*transform: scale(120%);*/
+        @apply transition delay-300 transform hover:-translate-y-1 ;
     }
 
+    /*CreateNoteForm.tsx*/
+    .formTitle {
+        @apply mt-5 mr-0 mb-1 ml-5 p-0 text-lg font-bold;
+    }
 
+    .noteForm {
+        @apply mt-0 mr-5 mb-5 ml-5 p-2.5 w-1/2 border-2 border-gray-700 rounded;
+    }
+
+    label {
+        @apply block mb-2.5;
+    }
+
+    .requiredField {
+        @apply after:content-['*'] after:ml-0.5 after:text-red-500;
+    }
+
+    input[type="text"] {
+        @apply w-full;
+    }
+
+    input[type='radio'] {
+        @apply mr-2 bg-gray-100 border-gray-300 focus:ring-blue-300 focus:ring-2;
+    }
+
+    .formBtnContainer {
+        @apply flex justify-end gap-10;
+    }
+
+    .btnSetNote {
+        @apply p-2.5 w-[200px] cursor-pointer rounded-md bg-gray-700 text-white font-semibold hover:shadow-md;
+    }
+
+    .errorBox {
+        @apply my-2.5 mx-0;
+    }
+
+    .errorBox > span {
+        @apply text-red-500 font-bold;
+    }
 }
 
