@@ -2,6 +2,7 @@
   "name": "radency-task2-react_redux",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://alinasyniavska.github.io/radency-note_app-react_redux/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
@@ -63,6 +64,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://alinasyniavska.github.io/radency-note_app-react_redux/"
+  }
 }
