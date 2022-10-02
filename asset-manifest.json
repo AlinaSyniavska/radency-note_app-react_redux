@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/radency-note_app-react_redux/static/css/main.cf45a10a.css",
+    "main.js": "/radency-note_app-react_redux/static/js/main.55380caf.js",
+    "index.html": "/radency-note_app-react_redux/index.html",
+    "main.cf45a10a.css.map": "/radency-note_app-react_redux/static/css/main.cf45a10a.css.map",
+    "main.55380caf.js.map": "/radency-note_app-react_redux/static/js/main.55380caf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf45a10a.css",
+    "static/js/main.55380caf.js"
+  ]
+}
